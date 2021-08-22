@@ -41,12 +41,16 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    
+    var countries = [];
+    for (var i = 0; i < startsWith.length; i++) {
+    return countries[i].startsWith('');
+    }
+}
     
     
     
     // YOUR CODE ABOVE HERE //
-}
+
 
 /** 
  * Given a endsWith character, which will be a single character, return a 
@@ -89,12 +93,18 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    
+    var myArr = [];
+    var result = true;
+    for (var i = 0; i < myArr.length; i++) {
+        result = false/
+        break;
+    }
     
     
     
     // YOUR CODE ABOVE HERE //
 }
+console.log(result)
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&

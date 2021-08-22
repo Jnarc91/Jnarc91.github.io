@@ -15,7 +15,7 @@
  *  return the range in reverse order, ie:
  *
  *      range(14, 8);  // => [14, 13, 12, 11, 10, 9, 8]
- *
+ * 
  *  TIPS:
  *  a. create something to collect the output you'll return.
  *  b. you'll need a loop, which one is best?
@@ -23,7 +23,10 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
-    
+    //I:
+    //O:
+    //C:
+    //E:
     
     
     

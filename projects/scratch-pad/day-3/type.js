@@ -14,12 +14,19 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
+    //I: value
+    //O: True if value is array, false otherwise
+    //C; Must use Array.isarray because typeOf wont work
+    if(Array.isArray(value)) {
+        return true;
+    } else {
+        return false;
+    }
     
-    
-    
+    }
     
     // YOUR CODE ABOVE HERE //
-}
+
 
 /** 
  * Given an input value, return true if the value is an Object intended as a 
@@ -31,12 +38,14 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    //I: value
+    //O: True if Obj is collection, false otherwise
+    //C: Must elminate all other possible postive test
+    return value === Object(obj);
+    }
+
     // YOUR CODE ABOVE HERE //
-}
+
 
 /** 
  * Given an input value, return true if is either an Array or an an Object 
@@ -46,6 +55,12 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
+    if(Array.isArray(value)) {
+        return true;
+        } else {
+            return false;
+        }
+        
     
     
     
@@ -74,12 +89,35 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
+    if(typeof(value) === "string"){
+        return "string";
+    } else if(Array.isArray(value)) {
+        return "array";
+    } else if(typeof(value) === "boolean"){
+          return "boolean";
+    }  else if(typeof(value) === "undefined"){
+        return "undefined";
+    } else if(typeof(value) === "function"){
+        return "function";
+    } else if(value === null) {
+       return "null";
+    } else if(typeof(value) === "number"){
+      return "number";
+    } else if(value instanceof Date) {
+        return "date";
+    } else if(typeof value === "object") {
+        return "object";
+    } else {
+        return "I am so lost!";
+    }
+    // YOUR CODE ABOVE HERE //
+}
+
     
     
     
     // YOUR CODE ABOVE HERE //
-}
+
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&

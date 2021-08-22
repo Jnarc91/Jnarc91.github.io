@@ -166,10 +166,10 @@ function join(stringOne, stringTwo) {
     var args = Array.from(arguments);
 //I: {stringOne and stringTwo}
 //O: return all strings joined together
-return stringOne.concat('') + stringTwo.concat('');
+    return args.join('');
     // YOUR CODE ABOVE HERE //
 }
-console.log(join('Jonathan', 'Narcisse'))
+
 /**
  * Given two Strings, return the longest of the two.
  *

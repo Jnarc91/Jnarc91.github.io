@@ -12,8 +12,21 @@
 */
 function fizzBuzz() {
     // YOUR CODE GOES BELOW HERE //
-
-
+    //I:{numbers 1-100}
+    //O: Print Fizz, Buzz and Fizz Buzz
+    //C: Multiples of three print Fizz instead / Multp. of five print Buzz
+    //E:
+    for (var i = 1; i <= 100; i++) {
+        if (i % 15 === 0) {
+            console.log('FizzBuzz');
+        } else if (i % 3 === 0) {
+            console.log("Fizz");
+        } else if (i % 5 === 0) {
+            console.log("Buzz")
+        } else {
+            console.log(i);
+        }
+}
 
     // YOUR CODE GOES ABOVE HERE //
 }
