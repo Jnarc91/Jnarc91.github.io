@@ -27,7 +27,18 @@ function range(start, end) {
     //O:
     //C:
     //E:
-    
+var arr = [];
+    if(start < end) {
+    for (var i = start; i <= end; i++) {
+     arr.push(i);
+            }
+        } else {
+            
+        for(var i = start; i >= end; i--) {
+        arr.push(i);
+            }
+        }
+        return arr;
     
     
     // YOUR CODE GOES ABOVE HERE //

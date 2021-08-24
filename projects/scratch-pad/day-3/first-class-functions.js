@@ -13,10 +13,10 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+     var greaterThan = function(r) {
+         return (r > base);
+     };
+     return(greaterThan);
     // YOUR CODE ABOVE HERE //
 }
 
@@ -27,7 +27,10 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
+    var value = function(test) {
+        return (test < base);
+    };
+    return(value);
     
     
     
@@ -41,10 +44,11 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    var countries = [];
-    for (var i = 0; i < startsWith.length; i++) {
-    return countries[i].startsWith('');
-    }
+    var a = function(b){
+        return(b.charAt(0).toLowerCase() === startsWith.charAt(0).toLowerCase());
+    };
+    return(a);
+
 }
     
     
@@ -60,11 +64,15 @@ function createStartsWithFilter(startsWith) {
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
     
-    
+    var newChar = function(char){
+        return(char.charAt(char.length-1).toLowerCase() === endsWith.charAt(endsWith.length-1).toLowerCase());
+        };
+         return(newChar);
+
+}
     
     
     // YOUR CODE ABOVE HERE //
-}
 
 /** 
  * Given an Array of Strings and a Function designed to modify a String, 
@@ -75,12 +83,18 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    
+  
+    var arr = [];
+    for(var i = 0; i < strings.length; i++){
+        arr.push(modify(strings[i]));
+    }
+        return(arr);
+}
     
     
     
     // YOUR CODE ABOVE HERE //
-}
+
 
 /** 
  * Given an Array of Strings and a Function designed to test the String in some 
@@ -93,18 +107,18 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    var myArr = [];
-    var result = true;
-    for (var i = 0; i < myArr.length; i++) {
-        result = false/
-        break;
+    for(var i = 0; i<strings.length;i++){
+        if(test(strings[i]) === false){
+            return false;
+            
+        }
     }
-    
-    
-    
+    return true;
+
+
+
     // YOUR CODE ABOVE HERE //
 }
-console.log(result)
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&

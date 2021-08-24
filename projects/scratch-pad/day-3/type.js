@@ -41,7 +41,13 @@ function isObject(value) {
     //I: value
     //O: True if Obj is collection, false otherwise
     //C: Must elminate all other possible postive test
-    return value === Object(obj);
+  if (value && typeof value === 'object' && value.constructor === Object) {
+      return true;
+  } else {
+      return false;
+ 
+  }
+
     }
 
     // YOUR CODE ABOVE HERE //
@@ -55,11 +61,16 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    if(Array.isArray(value)) {
-        return true;
-        } else {
-            return false;
-        }
+    //I: Value
+    //O: Return true if either Array or an Object is intended as collection/ False Otherwise
+    //C: Cannot use type of because of array/ Must elinate all other possible positve test
+    if (value && typeof value === 'object' && value.constructor === Object || 
+    Array.isArray(value)) {
+      return true;
+  } else {
+      return false;
+ 
+  }
         
     
     

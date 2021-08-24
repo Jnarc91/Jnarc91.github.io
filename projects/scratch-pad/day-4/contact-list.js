@@ -34,23 +34,64 @@
  */
 
 // YOUR CODE GOES BELOW HERE //
+//I: {3 param} id, nameFirst, and nameLast
+//O: returns any user input for id nameFirst and nameLast
+//C:
 function makeContact(id, nameFirst, nameLast) {
+    return {
+    id: id,
+    nameFirst: nameFirst,
+    nameLast: nameLast
+};
+
+
 
 } 
 
-
+//I: string of contact
+//O: returns an Object that manages mutltiple methods
+//C: Must use length() method, addConctact(conctact) findContact(fullName), removeContact(contact), and printAllConctactNames()
+//E:
 function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
+    var contacts = []; //---> This will hold all of our conctacts
     
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
+        }, //---> We use comma becasue this is an (object)
+        addContact: function(contact) {
+            contacts.push(contact);
+        },
+        findContact: function(fullName) {
+            for (var i = 0; i < contacts.length; i++){
+                if(contacts[i].nameFirst +' '+ contacts[i].nameLast === fullName) {
+                    return (contacts[i]);
+                }
+                //return undefined
+            }
+        },
+        removeContact: function(contact) {
+            for(var i = 0; i < contacts.length; i++){
+                if(contact === contacts[i]){
+                    contacts.splice(i, 1);
+                }
+            }
+        },
+        printAllContactNames: function(){
+        var name = '';
+            for(var i = 0; i < contacts.length; i++){
+                if(name!= ""){name = name+'\n'}
+                name = name+contacts[i].nameFirst +' '+ contacts[i].nameLast;
+                }
+                console.log(name);
+                return name;
+
         }
-    }
+    };
 }
 
 
