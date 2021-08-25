@@ -203,10 +203,10 @@ function sortAscending(stringOne, stringTwo) {
 //O: return 1 if the first is highter in alph order. Return -1 if the second is hight in aplh order, return 0 if equal
 //C: 1, -1, and 0
 //E: use strict comaparison
-if (stringOne < stringTwo) {
+if (stringOne > stringTwo) {
     return 1;
     
-} else if (stringOne > stringTwo) {
+} else if (stringOne < stringTwo) {
     return -1;
 } else {
     return 0;
@@ -229,10 +229,10 @@ function sortDescending(stringOne, stringTwo) {
     //O: return 1 if the first is lower in alph order. Return -1 if the second is lower in aplh order, return 0 if equal
     //C: 1, -1, and 0
     //E: use strict comaparison
-    if (stringOne > stringTwo) {
+    if (stringOne < stringTwo) {
       return 1;
         
-    } else if (stringOne < stringTwo) {
+    } else if (stringOne > stringTwo) {
         return -1;
     } else {
        return 0;
