@@ -3,15 +3,33 @@
 // triangles ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function triangles() {
-for 
+function triangles(arg) {
+  var string = "";
+    for (var i = 0; i < arg; i++) {
+      string += "#";
+      console.log(string);
+    }
 }
 ////////////////////////////////////////////////////////////////////////////////
 // fizzBuzz ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
 function fizzBuzz() {
-  
+  // YOUR CODE GOES BELOW HERE //
+    //I:{numbers 1-15}
+    //O: Print Fizz, Buzz and Fizz Buzz
+    //C: Multiples of three print Fizz instead / Multp. of five print Buzz
+  for (var i = 1; i <= 15; i++) {
+        if (i % 3 === 0 & i % 5 ===0) {
+            console.log('fizzbuzz');
+        } else if (i % 5 === 0) {
+            console.log("buzz");
+        } else if (i % 3 === 0) {
+            console.log("fizz")
+        } else {
+            console.log(i);
+        }
+}
 }
 
 ////////////////////////////////////////////////////////////////////////////////
