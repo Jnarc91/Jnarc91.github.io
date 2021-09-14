@@ -398,7 +398,7 @@ _.reject = function (array, func) {
         return myArr;
         
     }
-    //I
+    
 
 
 /** _.map
@@ -493,24 +493,56 @@ _.reject = function (array, func) {
 */
 
     _.every = function(collection, func) {
-    //I: collection arraay & object, func function
+    //I: collection arraay, func function
     //O: {boolean}
     //C:
     //E:if not boolean return true for thruthy value, or false for falsy/
     //func may not be a function
     
-    //create a function that returns truthy values
-    function testTruthy(e,i,collection) {
-        if(e) {
-            return true;
-        } else {
-            return false;
+    if(func === undefined) {
+        //iterate through collection and test the element
+        for (var i = 0; i < collection.length; i++) {
+            //test elemtn to be false
+            if(collection[i] === false) {
+                //if element is false then return false
+                return false;
+            }
         }
+        //else return true
+        return true;
     }
-}
-    //if fucn is a func then run _/map() with func, if not jsuttest if value is truthy/falsy
-
-
+    //check if collection is an array
+    if (Array.isArray(collection)) {
+        for (var i = 0; i < collection.length; i++) {
+            //check if func returns boolean
+            if (!func(collection[i], i, collection)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    //check if current value, current key, <collection> is equal to the object
+    else if (typeof collection === 'object') {
+        for (var key in collection) {
+            //check if returns value to the object
+            if (!func(collection[key], key, collection)) {
+                return false;
+            }
+        }
+        //elese true;
+        return true;
+    }
+  }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 /** _.some
 * Arguments:
 *   1) A collection
@@ -530,7 +562,45 @@ _.reject = function (array, func) {
 * Examples:
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
+* 
 */
+    _.some = function(collection, func) {
+        //account for func being undefined
+        //if undefined, return true id every elemnt is true -- false is falsy
+        if(func === undefined) {
+            //iterate through collection and test the lement
+            for (var i = 0; i < collection.length; i++) {
+                //test elemnt to false
+                if (collection[i] === true) {
+                    //if element is false then return false
+                    return true;
+                }
+            }
+            //else true
+            return false;
+        }
+        if (Array.isArray(collection)) {
+            for (var i = 0; i < collection.length; i++) {
+                if(func(collection[i], i, collection)) {
+                    return true;
+                }
+            }
+            //else false
+            return false;
+        }
+        //check to see if collection is equal to the object and loop through keys
+        else if(typeof collection === 'object') {
+            for (var key in collection) {
+                if (func(collection[key], key, collection)) {
+                    return true;
+                }
+            }
+            return false;
+            
+        }
+    }
+
+
 
 
 /** _.reduce
@@ -553,11 +623,27 @@ _.reject = function (array, func) {
 */
 
     _.reduce = function(array, func, seed) {
-        //check if seed`
-        for(var i = 0; i <array.length; i++) {
-            seed = func(seed, array[i], i);
-        }   //reassigning seed to be this function call
-    }
+        //check if seed exist
+        if (seed !== undefined) {
+            //if it does exits, loop through the array
+            for (var i = 0; i < array.length; i++) {
+                //reassign seed to be the value of the functiojn call
+                //call the func on seed, value, and index
+                seed = func(seed, array[i], i);
+        }
+        return seed;
+        
+        } else {
+            //if no seed is given, set seed to equal the first value of the array
+            seed = array[0];
+            //if it does, then loop through array
+            for (var i = 1; i < array.length; i++) {
+                seed = func(seed, array[i], i);
+            }
+        }
+        return seed;
+        }  
+
 
 
 /** _.extend
@@ -574,6 +660,10 @@ _.reject = function (array, func) {
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+        _.extend = function(obj1, ...obj2) {
+            var newObj = Object.assign(obj1, ...obj2);
+            return newObj;
+        }
 
     
 

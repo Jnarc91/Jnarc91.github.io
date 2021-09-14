@@ -22,12 +22,15 @@ var _ = require('underbar');
  */
 
 var maleCount = function(array) {
-
+return array.length;
 };
 
 var femaleCount;
 
-var oldestCustomer;
+var oldestCustomer = function(array) {
+    //create a variable string1
+    //oldName and assign to string 2 oldAge -->assign to 0
+}
 
 var youngestCustomer;
 

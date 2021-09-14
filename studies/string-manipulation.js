@@ -63,25 +63,13 @@
        // output:
        // str1 + str2 : This is string oneThis is string two  
  /* 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- */
+  
+    /*3. Split() The split method convers a string to an array by splitting the string up by a designated
+ * character and entering these separte strings into ethe elements of a new aray. This is 
+ * a sueful method to be able to manipulate individual words in a sentence by iterarting through that new array.
+ * If the string you ware working on is a paragraph or a file, this manipulation
+ * can be sued to cound words, find words, or delete words in them
+*/
+var sentence = "Hi, I am a sentecne";
+var newArray = sentence.split(" ");
+console.log(newArray); //---> ['Hi', 'I', 'am', 'a' 'sentence']

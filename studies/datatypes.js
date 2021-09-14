@@ -1,5 +1,5 @@
 /**
- * Data Types:
+ * DATA TYPES:
  *0. Data types in Javascript describe the different types of data that store data and variables. There will be two Data Types explained.
  *
  *1. SIMPLE DATA TYPES (PRIMITIVE); 
