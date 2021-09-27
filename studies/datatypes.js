@@ -59,52 +59,51 @@
  * 7. COPY BY REFERENCE:A reference type can contain other values. Since the contents of a reference type can not fit in the fixed amount of memory available for a variable, the in-memory value of a reference type is the reference itself (a memory address).
  * 
  * 1. EXAMPLES OF SIMPLE DATA TYPES:
- * 
- *      String Data Type:
- *          var a = 'stirng';
- * 
- *      NUMBER DATA TYPE:
- *          var b = 1;
- * 
- *      BOOLEAN DATA TYPE:
- *          var c = true;
- *          var d = false;
- * 
- *      THE NULL:
- *          var d = null;
- * 
- *      THE UNDEFINED:
- *          var e = undefinded;
- * 
- *      NAN:
- *          funciton num(x) {
- *              if (isNaN(x)) {
- *              return NaN:
- *          }
- *              return x;
- *      }
- *          console.log(num('2')) // expected output: "1";
- *          console.log('Not a number!'); // exected output: NaN
- *
- * 
- *      THE SYMBLE DATA TYPE:
- *          var f = Symbol();
- * 
- * 2. OBJECT DATA TYPES
- *          var object = {}; // this creates an empty objefct literal;
- *          var obj = {
- *              key: "value" // this creates an object with a property of key and the string value in object.
- *          }
- * 
- * 3. ARRAY DATA TYPE:
- *      var array = [] // this creates an array with an empty array literal;
- *      var array = ['element 1', 'elment 2'] // this creates an array with 2 elements inside.
- * 
- *  4. COPY BY VALUE AND COPY BY REFERENCE
- */
+ */ 
+ //      String Data Type:
+           var a = 'stirng';
+  
+ //      NUMBER DATA TYPE:
+           var b = 1;
+  
+ //      BOOLEAN DATA TYPE:
+           var c = true;
+           var d = false;
+  
+ //      THE NULL:
+           var d = null;
+  
+ //      THE UNDEFINED:
+           var e = undefined;
+  
+ //      NAN:
+           function num(x) {
+               if (isNaN(x)) {
+               return NaN;
+           }
+               return x;
+       }
+           console.log(num('2')) // expected output: "1";
+           console.log('Not a number!'); // exected output: NaN
+  
+ //      THE SYMBLE DATA TYPE:
+           var f = Symbol();
+  
+ // 2. OBJECT DATA TYPES
+           var object = {}; // this creates an empty objefct literal;
+           var obj = {
+               key: "value" // this creates an object with a property of key and the string value in object.
+           }
+  
+ // 3. ARRAY DATA TYPE:
+       var array = [] // this creates an array with an empty array literal;
+       var array = ['element 1', 'elment 2'] // this creates an array with 2 elements inside.
+  
+ //  4. COPY BY VALUE AND COPY BY REFERENCE
+ 
  
  //  1. COPY BY VALUE
-        var a = 1 // assign 1 to 'a'
+       var a = 1 // assign 1 to 'a'
        var b = a // assign "b" to the value of "a"
   
        b = 10// assign 10 to 'b'

@@ -42,23 +42,24 @@
  * 5. \f – form feed
  */
  //14. Examples of String Manipulations//
- /** 1. Slice()(start, end)//
-        const FRUITS = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
-        var citrus = FRUITS.slice(1, 3);
+ 
+ // 1. Slice()(start, end)//
+        const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+        var citrus = fruits.slice(1, 3);
         // citrus => [ 'Orange', 'Lemon' ]
 
         // Negative values slice in the opposite direction
-        var fromTheEnd = FRUITS.slice(-3, -1);
+        var fromTheEnd = fruits.slice(-3, -1);
         // fromTheEnd => [ 'Lemon', 'Apple' ]
         
         
-*/  
+  
 //2. Concat() //This method adds two or more strings and returns a new single string.//
 
-        // let str1 = new String( "This is string one" ); 
-        // let str2 = new String( "This is string two" ); 
-        // let str3 = str1.concat(str2.toString());
-        // console.log("str1 + str2 : "+str3)
+        let str1 = new String( "This is string one" ); 
+        let str2 = new String( "This is string two" ); 
+        let str3 = str1.concat(str2.toString());
+        console.log("str1 + str2 : "+str3)
         
        // output:
        // str1 + str2 : This is string oneThis is string two  
@@ -70,6 +71,36 @@
  * If the string you ware working on is a paragraph or a file, this manipulation
  * can be sued to cound words, find words, or delete words in them
 */
-var sentence = "Hi, I am a sentecne";
-var newArray = sentence.split(" ");
-console.log(newArray); //---> ['Hi', 'I', 'am', 'a' 'sentence']
+        var sentence = "Hi, I am a sentecne";
+        var newArray = sentence.split(" ");
+        console.log(newArray); //---> ['Hi', 'I', 'am', 'a' 'sentence']
+        
+        
+ /**4. toUpperCase()
+    The toUpperCase() method returns the calling string value converted to uppercase
+    (the value will be converted to a string if it isn't one).
+ */ 
+         var str = "Hello World!";
+         var res = str.toUpperCase();  //HELLO WORLD!
+         
+         
+/** 5.
+    The replace() method searches a string for a specified value, or a regular
+    expression, and returns a new string where the specified values are replaced.
+
+    //*Note: If you are replacing a value (and not a regular expression), only the first
+    instance of the value will be replaced. To replace all occurrences of a specified value,
+    use the global (g) modifier
+        */
+        var str = "JavaScript replace method test";
+        var res = str.replace("test", "success");  
+        //res = Javscript replace method success
+        
+/**6. charAt() This method takes in a string and an index as input
+    * and returns the character at that position in the specified string
+    */
+        myString = "Hello World!";
+        
+        console.log(myString.charAt(0)); // outputs "H"
+        console.log(myString.charAt(5)); // outputs " "
+        console.log(myString.charAt(8)); // outputs "r"

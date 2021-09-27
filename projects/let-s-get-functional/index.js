@@ -22,29 +22,110 @@ var _ = require('underbar');
  */
 
 var maleCount = function(array) {
-return array.length;
-};
-
-var femaleCount;
-
-var oldestCustomer = function(array) {
-    //create a variable string1
-    //oldName and assign to string 2 oldAge -->assign to 0
+var males = _.filter(array, function(value, index, collection) {
+    return value.gender === "male";
+});
+    return males.length;
 }
 
-var youngestCustomer;
 
-var averageBalance;
+var femaleCount = function(array) {
+    var females = _.filter(array, function(value, index, coll) {
+    return value.gender === "female";
+});
+    return females.length;
+}
 
-var firstLetterCount;
+var oldestCustomer = function(array) {
+   var  custName;
+   var custIndex = 0
+   for (var i = 1; i <= array.length - 1; i++)
+        if(array[0].age < array[i].age) {
+           custIndex = i;
+        }
+        custName = array[custIndex].name;
+            return custName;
+};
 
-var friendFirstLetterCount;
+var youngestCustomer = function(array) {
+    var custName2;
+    var custIndex2 = 0;
+    for (var i = 1; i <= array.length - 1; i ++)
+        if(array[custIndex2].age > array[i].age) {
+            custIndex2 = i;
+        }
+        custName2 = array[custIndex2].name;
+        return custName2;
+};
 
-var friendsCount;
+var averageBalance = function(array) {
+// loop through array and add each balance to all customers
+    
+    var sum = 0;
+    for (var i = 0; i < array.length; i++) {
+        sum += Number(array[i].balance.replace(/[$,]/g, ""));
+    }
+    return sum/array.length;
+};
+var firstLetterCount = function(array, letter) {
+    //find how many customers name's in arry begin with letter
+     let count = _.reduce(array,function(acc, customer) {
+         if(customer.name[0].toLowerCase() === letter.toLowerCase()){
+             return acc + 1;
+         }
+         return acc;
+     }, 0);
+     return count;
+};
 
-var topThreeTags;
+var friendFirstLetterCount = function(array, customer, letter) {
+    //Create a variable to hold the reduce function
+    var list = _.reduce(array, function(acc, customerObj) {
+        //Check if the customer is the curent custoemr object
+        if(customerObj.name === customer) {
+            //loop through the freinds array and compare letter to the friend name
+            var acc = _.filter(customerObj.friends, function(friend, i, friends) {
+            
+                return friend.name[0].toLowerCase() === letter.toLowerCase()
+            })
+            return acc;
+        }
+        return acc;
+       
+    }, []);
+    return list.length;
+     
+};
 
-var genderCount;
+var friendsCount = function(array, name) {
+    //See if the freinds list contains name and return the customers name
+    var result = _.filter(array, function(customerObj) {
+        for(var i = 0; i < customerObj.friends.length; i++) {
+            if (customerObj.friends[i].name === name) {
+                return customerObj;
+            }
+        }
+    });
+    return _.pluck(result, "name");
+};
+
+var topThreeTags = function(array) {
+
+};
+   
+
+var genderCount = function(array) {
+   var genCountObj = _.reduce(array, function(resultObj, customerObj) {
+       if(resultObj[customerObj.gender]) {
+           resultObj[customerObj.gender] += 1;
+       } else {
+           resultObj[customerObj.gender] = 1;
+       }
+       return resultObj
+   },{});
+   return genCountObj;
+   
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////

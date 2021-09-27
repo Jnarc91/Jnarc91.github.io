@@ -16,6 +16,7 @@ var factorial = function(n) {
 return n * factorial(n - 1); // --> to 5,4,3,2,1
 };
 
+
 // 2. Compute the sum of an array of integers.
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
 
@@ -24,13 +25,18 @@ var sum = function(array) {
   if (array.length === 0) {
     return 0;
   }
-  return array[0] + array.slice(1);
+  return array[0] + sum(array.slice(1));
 };
+
+
+
 
 // 3. Sum all numbers in an array containing nested arrays.
 // Example: arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
 };
+
+
 
 // 4. Check if a number is even.
 var isEven = function(n) {
@@ -57,18 +63,34 @@ var sumBelow = function(n) {
   //base case
   if (n === 0) {
     return n + 0;
-  } 
-  n--
-  //recursive call
-  return  + sumBelow(n);
   }
 
-
+  //recursive call
+  if (n < 0) {
+    return (n + 1) + sumBelow(n + 1);
+  }
+  return (n - 1) + sumBelow(n - 1);
+}
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y) {
+  //base case
+  var myArr = []
+  if (x === y) {
+    return myArr;
+  } 
+  //Recursive call
+   if (x < y) {
+     myArr.push(x + 1);
+     return range(x + 1, y);
+   } else if (x > y) {
+    myArr.push(x - 1);
+    return range(x - 1, y);
+   }
 };
+
+
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
@@ -76,6 +98,14 @@ var range = function(x, y) {
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+  if (exp === 0) { 
+    return 1;
+  } 
+  if (exp > 0) {
+    return base * exponent(base, exp - 1);
+  } else if ( exp < 0) {
+    return 1 / (base * exponent(base, -exp -1));
+  }
 };
 
 // 8. Determine if a number is a power of two.
@@ -83,14 +113,41 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+    if (n === 1) {
+      return true;
+    } else if (n === 2) {
+      return true;
+    } else if (n < 2) {
+      return false;
+    }
+  // recursion call
+  return powerOfTwo(n / 2);
 };
 
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {
+  if (string.length === 0) {
+    return "";
+  }
+  //recursion
+  //need to take 
+  return reverse(string.substr(1)) + string.charAt(0);
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+  //base case
+ string = string.replace(' ', "").toLowerCase();
+  if (string[0] !== string[string.length - 1]) {
+    return false;
+  } else if (string.length < 3) {
+    return true;
+  }
+  
+  
+  
+  //recursion call
+  return palindrome(string.slice(1, -1));
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
@@ -99,18 +156,30 @@ var palindrome = function(string) {
 // modulo(17,5) // 2
 // modulo(22,6) // 4
 var modulo = function(x, y) {
+  
 };
+
 
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
 var multiply = function(x, y) {
+  if (y === 0){
+    return 0;
+  }
+  if (y < 0) {
+    return -x + multiply(x, y + 1)
+  }
+  return x + multiply(x, y - 1)
 };
+
 
 // 13. Write a function that divides two numbers without using the / operator  or
 // JavaScript's Math object.
 var divide = function(x, y) {
 };
+
+
 
 // 14. Find the greatest common divisor (gcd) of two positive numbers.  The GCD of two
 // integers is the greatest integer that divides both x and y with no remainder.
@@ -126,6 +195,13 @@ var gcd = function(x, y) {
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+  //base call
+  if (str1[0] !== str2[0]) {
+    return false;
+  } else if (str1.en)
+    
+  //recursvie cll
+  return compareStr(str1.slice(1), str2.slice(1));
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
