@@ -110,6 +110,44 @@ var friendsCount = function(array, name) {
 };
 
 var topThreeTags = function(array) {
+    //Crate a variable to hold the count of each tag
+    var myArray = [];
+    //Create a variable to return the top 3 tag strings
+    var topTags = [];
+    
+    
+    //pluk the tags from customers array
+    var tags = _.pluck(customers, "tags");
+    
+    //Flatten the tags array and sort  duplicates together
+    var allTags = _.reduce(tags, function(acc, currTag) {
+        return acc.concat(currTag);
+    }).sort();
+    //console.log(allTags);
+    
+    //Reduce to order the count into an object
+    var total = allTags.reduce(function(count, tag) {
+        count[tag] ? count[tag] = count[tag] + 1 : count[tag] = 1;
+        return count;
+    }, {});
+    //console log the totals
+    
+    //Loop through the object, pushing the properties into an array
+   for(var key in total){
+       myArray.push([key, total[key]]);
+   }
+   //sort tags in descending order based on the count
+   var top = myArray.sort(function(acc, currTag) {
+       return currTag[1] - acc[1];
+   }).slice(0, 3);
+   
+   
+   //filter thru the top array and push the tag strings in the new array
+   _.filter(top, function(topTagArr) {
+       return topTagArr[0] ? topTags.push(topTagArr[0]) : null;
+   });
+   //Return the fial array with the top three tags
+   return topTags;
 
 };
    
